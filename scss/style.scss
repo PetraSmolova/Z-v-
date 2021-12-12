@@ -1,0 +1,119 @@
+@use 'colors-size';
+
+body {
+    margin: 0;
+    background-color: colors-size.$c_secondary;
+}
+
+.kontejner {
+    font-family: 'Noto Serif', serif;
+}
+
+
+
+
+//HEADER//
+
+.header {
+    padding: 20px;
+    background-image: url(../images/pecivo_mensi.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &__title {
+    font-size: colors-size.$h1_fs;
+    color: colors-size.$c_secondary;
+    text-shadow: 2px 2px rgb(0, 0, 0, 0.3)
+    }
+
+
+    &__subtitle {
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 30px;
+    color: colors-size.$c_secondary;
+    text-shadow: 2px 2px rgb(0, 0, 0, 0.3)
+    }
+
+    @media screen and (min-width: 700px) {
+      background-image: url(../images/pecivo_vetsi.jpg);
+    }
+}
+//MENU//
+.menu__list {
+    list-style: none;
+    margin: 0 0 120px 0;
+	padding: 0;
+}
+
+.menu__item {
+	padding: 0;
+    background-color: colors-size.$c_primary;
+    border-radius: 5px;
+    margin: 10px 20px;
+}
+
+.menu__link {
+    text-decoration: none;
+    padding: 15px 0;
+    color:  colors-size.$c_secondary;
+    font-weight: bold;
+    font-size: colors-size.$p_fs;
+    display: block;
+    text-align: center;
+    width: 100%;
+
+
+    &:active {
+        font-size: colors-size.$p_fs + 3px;
+        padding: 13px 0;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        text-align: center;
+        }
+}
+
+@media screen and (min-width:700px) {
+    .invisible{
+        display: none;
+    }
+
+    .menu__list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex: 1 0 100%;
+        max-height: 150px;
+    }
+
+    .menu__item{
+        width: calc((100% - 6px) / 6);
+        margin: 0;
+        border-radius: 0;
+        padding: 50px 0;
+    }
+
+    .menu__link {
+        align-items: center;
+    }
+
+    .menu__link:hover {
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+    }    
+}
+//FOOTER//
+.footer__copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: colors-size.$c_text;
+    color: colors-size.$c_secondary;
+    text-align: center;
+    padding: 50px 0 50px 0;
+    font-size: colors-size.$p_fs;
+    margin-top: 20px;
+}
+
+
+
