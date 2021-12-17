@@ -157,6 +157,10 @@ body {
 
 .main {
   padding: 40px;
+  /* 
+      @media screen and (min-width: 1500px) {
+        padding: 0;
+      } */
 }
 
 .introduction {
@@ -195,6 +199,7 @@ body {
 
   .main {
     max-width: 1500px;
+    padding: 0 auto;
     margin: 50px auto;
   }
 
