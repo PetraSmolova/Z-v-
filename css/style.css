@@ -9,7 +9,7 @@ body {
 
 .kontejner {
   font-family: "Noto Serif", serif;
-  margin-bottom: 180px;
+  margin-bottom: 120px;
 }
 
 .header {
@@ -131,8 +131,13 @@ body {
   }
 }
 @media screen and (min-width: 700px) and (min-width: 1500px) {
-  .border {
+  .menu__item {
     border-left: 1px solid #f8f2e8;
+  }
+}
+@media screen and (min-width: 700px) and (min-width: 1500px) {
+  .menu__item:last-child {
+    border-right: 1px solid #f8f2e8;
   }
 }
 @media screen and (min-width: 700px) {
@@ -151,11 +156,10 @@ body {
 }
 
 .main {
-  margin: 0 auto;
+  padding: 40px;
 }
 
 .introduction {
-  margin: 20px;
   color: #3d311d;
   max-width: 1500px;
 }
