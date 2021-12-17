@@ -1,5 +1,9 @@
 @use 'colors-size';
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: colors-size.$c_secondary;
@@ -7,43 +11,61 @@ body {
 
 .kontejner {
     font-family: 'Noto Serif', serif;
+    margin-bottom: 180px;
 }
-
-
 
 
 //HEADER//
 
 .header {
-    padding: 20px;
+    padding: 30px;
     background-image: url(../images/pecivo_mensi.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    &__title {
-    font-size: colors-size.$h1_fs;
-    color: colors-size.$c_secondary;
-    text-shadow: 2px 2px rgb(0, 0, 0, 0.3)
+    &__link {
+        text-decoration: none;
     }
 
+    &__title {
+        color: colors-size.$c_secondary;
+        font-size: colors-size.$h1_fs;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        margin: 0 auto;
+        max-width: 1500px;
+    }
 
     &__subtitle {
-    font-style: italic;
-    font-weight: normal;
-    margin-left: 30px;
-    color: colors-size.$c_secondary;
-    text-shadow: 2px 2px rgb(0, 0, 0, 0.3)
+        font-style: italic;
+        font-weight: normal;
+        color: colors-size.$c_secondary;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        margin: 40px auto;
+        max-width: 1500px;
+        padding-left: 30px;
     }
 
     @media screen and (min-width: 700px) {
       background-image: url(../images/pecivo_vetsi.jpg);
+      padding: 50px 30px;
+
+        &__subtitle {
+            padding-left: 60px;
+        }
     }
 }
 //MENU//
+
+.menu {
+    @media screen and (min-width: 1500px) {
+        background-color: colors-size.$c_primary;
+    }
+}
+
 .menu__list {
     list-style: none;
-    margin: 0 0 120px 0;
+    margin: 0;
 	padding: 0;
 }
 
@@ -73,8 +95,16 @@ body {
         }
 }
 
+.invisible2 {
+    display: none;
+}
+
 @media screen and (min-width:700px) {
-    .invisible{
+    .invisible2 {
+        display: block;
+    }
+
+        .invisible{
         display: none;
     }
 
@@ -84,36 +114,147 @@ body {
         flex-wrap: wrap;
         flex: 1 0 100%;
         max-height: 150px;
+
+        @media screen and (min-width: 1500px) {
+         justify-content: center;
+        }
     }
 
     .menu__item{
         width: calc((100% - 6px) / 6);
+        max-width: calc((1500px - 6px) / 6);
         margin: 0;
         border-radius: 0;
-        padding: 50px 0;
+        padding: 40px 0;
     }
+    
+    .border {
+        @media screen and (min-width: 1500px) {
+            border-left: 1px solid colors-size.$c_secondary;
+        }
+    }
+
 
     .menu__link {
         align-items: center;
+    
+        &:hover {
+            text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        }  
+
+        &:active {
+            padding: 11px 0;
+        }  
+    }
+}
+//MAIN//
+
+.box {
+    display: none;
+}
+
+.main {
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.introduction {
+    margin: 20px;
+    color: colors-size.$c_text;
+    max-width: 1500px;
+
+    &__list {
+    list-style-type: circle;
+    line-height: 2;
+    padding-left: 20px;
+    }
+}
+
+.main__title {
+    display: block;
+}
+
+.main__title::after {
+    content: "";
+    display: block;
+    background-color: colors-size.$c_primary;
+    width: 100px;
+    height: 4px;
+    margin: 30px;
+}
+
+@media screen and (min-width: 700px) {
+
+    .box {
+        display: block;
+        color: colors-size.$c_text;
     }
 
-    .menu__link:hover {
-        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
-    }    
+    .main__flex {display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .main {
+        max-width: 1500px;
+        margin: 50px auto;
+    }
+
+    .box__list {
+        list-style-type: circle;
+        line-height: 2;
+        padding-left: 20px;
+    }
+
+    .box__primary {
+        width: 40%;
+    }
+
+    .box__secondary {
+        margin-left: 50px;
+        width: calc(60% - 50px);
+    }
+
 }
+
+//BUTTON//
+
+.button__back {
+    color: colors-size.$c_secondary;
+    background-color: colors-size.$c_primary;
+    text-decoration: none;
+    list-style: none;
+    font-size:  colors-size.$p_fs;
+    margin: 20px 10px;
+    padding: 10px 50px;
+    position: fixed;
+    bottom: 80px;
+
+    &:active {
+        font-size: colors-size.$p_fs + 4px;
+        padding: 7px 44px;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        text-align: center;
+        }
+
+    @media screen and (min-width: 700px) {
+        &:hover {
+            text-shadow: 2px 2px rgb(0, 0, 0, 0.3);
+        }  
+    }
+
+}
+
 //FOOTER//
+
 .footer__copyright {
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    height:60px;
     left: 0;
     width: 100%;
     background-color: colors-size.$c_text;
     color: colors-size.$c_secondary;
     text-align: center;
-    padding: 50px 0 50px 0;
+    padding: 30px 0;
     font-size: colors-size.$p_fs;
-    margin-top: 20px;
 }
-
-
-
