@@ -6,17 +6,21 @@ layout: sablona.njk
     <ul class="menu__list">
         <li class="menu__item invisible invisible2"><a class="menu__link" href="/introduction/">Pár slov úvodem</a></li>
         <li class="menu__item invisible invisible2"><a class="menu__link" href="/news/">Nejnovější recepty</a></li>
-        <li class="menu__item invisible2"><a class="menu__link" href="/meat/">Masitá jídla</a></li>
-        <li class="menu__item invisible2 border"><a class="menu__link" href="/meatless/">Bezmasá jídla</a></li>
-        <li class="menu__item invisible2 border"><a class="menu__link" href="/salads/">Saláty a pomazánky</a></li>
-        <li class="menu__item invisible2 border"><a class="menu__link" href="/baking/">Slané pečení</a></li>
-        <li class="menu__item invisible2 border"><a class="menu__link" href="/sweets/">Sladké pečení</a></li>
-        <li class="menu__item invisible2 border"><a class="menu__link" href="/syrups/">Zavařování</a></li>
+        <li class="menu__item invisible2 {{ 'menu__item--active' if page.fileSlug === 'meat' }}"><a class="menu__link" href="/meat/">Masitá jídla</a></li>
+        <li class="menu__item invisible2 border {{ 'menu__item--active' if page.fileSlug === 'meatless' }}"><a class="menu__link" href="/meatless/">Bezmasá jídla</a></li>
+        <li class="menu__item invisible2 border {{ 'menu__item--active' if page.fileSlug === 'salads' }}"><a class="menu__link" href="/salads/">Saláty a pomazánky</a></li>
+        <li class="menu__item invisible2 border {{ 'menu__item--active' if page.fileSlug === 'baking' }}"><a class="menu__link" href="/baking/">Slané pečení</a></li>
+        <li class="menu__item invisible2 border {{ 'menu__item--active' if page.fileSlug === 'sweets' }}"><a class="menu__link" href="/sweets/">Sladké pečení</a></li>
+        <li class="menu__item invisible2 border {{ 'menu__item--active' if page.fileSlug === 'syrups' }}"><a class="menu__link" href="/syrups/">Zavařování</a></li>
     </ul>
 </section>
 
 <main class="main">
 
     {{content | safe}}
+
+  {% if page.fileSlug !== '' %}
+    <a href="/" class="button__back">◄◄◄</a> 
+  {% endif %}
 
 </main>
